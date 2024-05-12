@@ -2,7 +2,9 @@ export async function getAllProducts() {
     let response;
     try {
       response = await fetch(
-        `https://${import.meta.env.VITE_API_URL}.mockapi.io/Abarrotes`,
+        `https://${
+          import.meta.env.VITE_API_URL
+        }.mockapi.io/Abarrotes`,
         {
           method: "GET",
           headers: { "Content-Type": "application/json" },
@@ -53,6 +55,34 @@ export async function getAllProducts() {
       return responseData;
     } catch (error) {
       console.error(error);
+      throw error;
+    }
+  }
+
+  export async function getProductById(productId: string) {
+    let response;
+    try {
+      response = await fetch(
+        `https://${
+          import.meta.env.VITE_API_URL
+        }.mockapi.io/Abarrotes/${productId}`,
+        {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+      if (!response.ok) throw new Error("Error to get product");
+    } catch (error) {
+      console.error("Error occurred while fetching product: ", error);
+      throw error;
+    } finally {
+      console.log("Finished fetching product");
+    }
+    try {
+      const responseData: Productos = await response.json();
+      return responseData;
+    } catch (error) {
+      console.error("Error occurred while parsing response: ", error);
       throw error;
     }
   }
