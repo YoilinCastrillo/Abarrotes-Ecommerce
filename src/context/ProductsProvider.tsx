@@ -1,20 +1,23 @@
-import React, { createContext, useContext, useState } from "react";
+import { ReactNode, useState } from "react";
+import ProductsContext from "./ProductsContext";
 
-type ProductsContextType = {
-    products: string[]; // Aquí puedes ajustar el tipo según tu lista de productos
-    setProducts: (products: string[]) => void;
-    page: number;
-    setPage: (newPage: number) => void;
+const ProductsProvider = ({ children }: { children: ReactNode }) => {
+  const [ProductId, setProductId] = useState("");
+  const [page, setPage] = useState(1)
+
+  return (
+    <ProductsContext.Provider
+      value={{
+        ProductId,
+        setProductId,
+        page,
+        setPage,
+      }}
+    >
+      {children}
+    </ProductsContext.Provider>
+  );
 };
 
-const ProductsContext = createContext<ProductsContextType>({
-    products: [],
-    setProducts: () => {},
-    page: 1,
-    setPage: () => {},
-});
-
-export const useProductsContext = () => useContext(ProductsContext);
-
-export default ProductsContext;
+export default ProductsProvider;
 

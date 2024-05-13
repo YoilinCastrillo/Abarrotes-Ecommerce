@@ -1,18 +1,19 @@
-import React, { createContext, useContext } from "react";
+import React, { useContext } from "react";
 
 type ProductsContextType = {
     ProductId: string;
-    setProducId: (text: string) => void;
+    setProductId: (text: string) => void;
     page: number;
-    SetPage: (newPage: number) => void;
+    setPage: (newPage: number) => void;
+
 };
 //COMPLETAR EL CONTEXT CON LO QUE NECESITE
 const ProductsContext = React.createContext<ProductsContextType>({
- 
+
   ProductId: "",
-  setProducId: () => {},
+  setProductId: () => {},
   page: 1,
-  SetPage: () => {},
+  setPage: () => {},
 
 });
 
