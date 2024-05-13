@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
+import '../App.css'
 
 export default function SingleProduct({ product }: { product: Productos }) {
   return (
     <>
-    <section>
+    <section className="TProducto">
+        <img src={product.imagen} alt={product.nombre} />
         <h1>{product.nombre}</h1>
         <p>{product.marca}</p>
         <p>{product.precio}</p>
-        <img src={product.imagen} alt={product.nombre} />
+        
         <Link to={`/productos/${product.id}`}>
-        <button type="button">Ver mas</button>
+        <button className="ver-mas" type="button">Ver más</button>
         </Link>
     </section>
     </>

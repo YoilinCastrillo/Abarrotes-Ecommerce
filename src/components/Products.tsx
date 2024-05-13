@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import { useGetProduts } from '../hooks/Products/useGetProducts';
 import SingleProduct from './SingleProducts';
+import '../App.css'
 
 const Products = () => {
   const {filteredProducts} = useGetProduts()
+  
   return (
-    <div>
+  <div>
     <div>
       <Link to="/new">
         <button >
@@ -13,7 +15,7 @@ const Products = () => {
         </button>
       </Link>
     </div>
-    <section >
+    <section className='ContenedorProducto' >
       {filteredProducts?.map((productResult: Productos) => (
         <SingleProduct
           key={productResult.id}

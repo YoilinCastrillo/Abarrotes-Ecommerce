@@ -1,3 +1,4 @@
+
 export async function getAllProducts() {
     let response;
     try {
@@ -105,6 +106,39 @@ export async function getAllProducts() {
       throw error;
     } finally {
       console.log("Finished deleting product");
+    }
+  
+    try {
+      const responseData: Productos = await response.json();
+      return responseData;
+    } catch (error) {
+      console.error("Error occurred while parsing response: ", error);
+      throw error;
+    }
+  }
+
+  export async function updateProduct(
+    productId: string,
+    updatedProduct: Productos
+  ) {
+    let response;
+    try {
+      response = await fetch(
+        `https://${
+          import.meta.env.VITE_API_URL
+        }..mockapi.io/Abarrotes/${productId}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(updatedProduct),
+        }
+      );
+      if (!response.ok) throw new Error("Error updating product");
+    } catch (error) {
+      console.error("Error occurred while updating product: ", error);
+      throw error;
+    } finally {
+      console.log("Finished updating product");
     }
   
     try {
