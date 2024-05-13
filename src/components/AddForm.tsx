@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form"
-import { createProduct} from "../services/Products"
 import { useNavigate } from "react-router"
-
+import { createProduct } from "../services/Products"
 
 const AddForm = () => {
 

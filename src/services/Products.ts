@@ -29,6 +29,7 @@ export async function getAllProducts() {
   }
 
   export async function createProduct(
+    
     PostProduct: Productos
   ) {
     let response;

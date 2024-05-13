@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import ProductsContext from "../context/ProductsContext";
+import Home from "../pages/Home";
 
 export default function Pagination() {
     const { page, SetPage } = useContext(ProductsContext);
