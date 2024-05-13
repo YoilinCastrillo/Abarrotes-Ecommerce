@@ -73,18 +73,18 @@ export async function getAllProducts() {
           headers: { "Content-Type": "application/json" },
         }
       );
-      if (!response.ok) throw new Error("Error to get product");
+      if (!response.ok) throw new Error("Error al obtener productosz");
     } catch (error) {
-      console.error("Error occurred while fetching product: ", error);
+      console.error("Error al hacer fetching: ", error);
       throw error;
     } finally {
-      console.log("Finished fetching product");
+      console.log("Fetching de productos finalizado");
     }
     try {
       const responseData: Productos = await response.json();
       return responseData;
     } catch (error) {
-      console.error("Error occurred while parsing response: ", error);
+      console.error("Se produjo un error: ", error);
       throw error;
     }
   }
@@ -103,17 +103,17 @@ export async function getAllProducts() {
       );
       if (!response.ok) throw new Error("Error deleting product");
     } catch (error) {
-      console.error("Error occurred while deleting product: ", error);
+      console.error("Error al eliminar producto: ", error);
       throw error;
     } finally {
-      console.log("Finished deleting product");
+      console.log("Producto eliminado");
     }
   
     try {
       const responseData: Productos = await response.json();
       return responseData;
     } catch (error) {
-      console.error("Error occurred while parsing response: ", error);
+      console.error("Se produjo un error", error);
       throw error;
     }
   }
@@ -134,19 +134,19 @@ export async function getAllProducts() {
           body: JSON.stringify(updatedProduct),
         }
       );
-      if (!response.ok) throw new Error("Error updating product");
+      if (!response.ok) throw new Error("Error al actualizar el producto");
     } catch (error) {
-      console.error("Error occurred while updating product: ", error);
+      console.error("Error al actualizar el producto: ", error);
       throw error;
     } finally {
-      console.log("Finished updating product");
+      console.log("Producto actualizado");
     }
   
     try {
       const responseData: Productos = await response.json();
       return responseData;
     } catch (error) {
-      console.error("Error occurred while parsing response: ", error);
+      console.error("Se produjo un error", error);
       throw error;
     }
   }

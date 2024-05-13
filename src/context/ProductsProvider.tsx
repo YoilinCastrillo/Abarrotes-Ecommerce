@@ -2,16 +2,16 @@ import { ReactNode, useState } from "react";
 import ProductsContext from "./ProductsContext";
 
 const ProductsProvider = ({ children }: { children: ReactNode }) => {
-  const [ProductId, setProducId] = useState("");
-  const [page, SetPage] = useState(1);
- 
+  const [ProductId, setProductId] = useState("");
+  const [page, setPage] = useState(1)
+
   return (
     <ProductsContext.Provider
       value={{
         ProductId,
-        setProducId,
+        setProductId,
         page,
-        SetPage,
+        setPage,
       }}
     >
       {children}
@@ -20,3 +20,4 @@ const ProductsProvider = ({ children }: { children: ReactNode }) => {
 };
 
 export default ProductsProvider;
+

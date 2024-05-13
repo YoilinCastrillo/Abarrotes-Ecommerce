@@ -1,67 +1,52 @@
-import { useContext, useEffect, useState } from "react";
+import { SetStateAction, useState } from "react";
 import ProductsContext from "../context/ProductsContext";
 import Home from "../pages/Home";
 
 export default function Pagination() {
-    const { page, SetPage } = useContext(ProductsContext);
     const [currentPage, setCurrentPage] = useState(1);
+    const totalPages = 6;
 
-    function incrementPage() {
-  SetPage(page + 1);
+    function handlePageChange(pageNumber: SetStateAction<number>) {
+        setCurrentPage(pageNumber);
+        // Aquí podrías hacer una llamada a una API o actualizar los datos de acuerdo a la página seleccionada
     }
-
-    function decrementPage() {
-  SetPage(page - 1);
-    }
-
-    function setPageNumber(pageNumber: number) {
- SetPage(pageNumber);
-    }
-
-    useEffect(() => {
-        setCurrentPage(page);
-    }, [page]);
 
     return (
-        <>
-            <nav className="pagination">
-                <ul className="pagination-list">
-                    <li>
+        <nav className="flex items-center justify-center my-7">
+            <ul className="flex items-center -space-x-px h-10 text-base">
+                <li>
+                    <button
+                        disabled={currentPage === 1}
+                        onClick={() => handlePageChange(currentPage - 1)}
+                        className="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700"
+                    >
+                        Anterior
+                    </button>
+                </li>
+
+                {[...Array(totalPages).keys()].map((pageNumber) => (
+                    <li key={pageNumber + 1}>
                         <button
-                            onClick={decrementPage}
-                            className="pagination-button"
+                            onClick={() => handlePageChange(pageNumber + 1)}
+                            className={`${
+                                currentPage === pageNumber + 1 ? "text-white bg-gray-700" : "text-gray-500 bg-white hover:bg-gray-100"
+                            } flex items-center justify-center px-4 h-10 leading-tight border border-gray-300 rounded-lg`}
                         >
-                            Anterior
+                            {pageNumber + 1}
                         </button>
                     </li>
+                ))}
 
-                    {Array.from({ length: 5 }, (_, index) => index + 1).map(
-                        (pageNumber) => (
-                            <li key={pageNumber}>
-                                <button
-                                    onClick={() => setPageNumber(pageNumber)}
-                                    className={`pagination-button ${
-                                        currentPage === pageNumber
-                                            ? "active"
-                                            : ""
-                                    }`}
-                                >
-                                    {pageNumber}
-                                </button>
-                            </li>
-                        )
-                    )}
-
-                    <li>
-                        <button
-                            onClick={incrementPage}
-                            className="pagination-button"
-                        >
-                            Siguiente
-                        </button>
-                    </li>
-                </ul>
-            </nav>
-        </>
+                <li>
+                    <button
+                        disabled={currentPage === totalPages}
+                        onClick={() => handlePageChange(currentPage + 1)}
+                        className="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700"
+                    >
+                        Siguiente
+                    </button>
+                </li>
+            </ul>
+        </nav>
     );
 }
