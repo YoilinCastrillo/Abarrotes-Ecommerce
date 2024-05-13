@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useGetProduts } from '../hooks/Products/useGetProducts';
 import SingleProduct from './SingleProducts';
 import '../App.css'
+import Pagination from './Pagination';
 
 const Products = () => {
   const {filteredProducts} = useGetProduts()
@@ -15,7 +16,7 @@ const Products = () => {
         </button>
       </Link>
     </div>
-    <section className='ContenedorProducto' >
+    <section className='ContenedorProducto' >{}
       {filteredProducts?.map((productResult: Productos) => (
         <SingleProduct
           key={productResult.id}
