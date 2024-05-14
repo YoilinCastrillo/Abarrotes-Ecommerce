@@ -1,4 +1,8 @@
 import { SetStateAction, useState } from "react";
+import ProductsContext from "../context/ProductsContext";
+import Home from "../pages/Home";
+import '../App.css'
+
 export default function Pagination() {
     const [currentPage, setCurrentPage] = useState(1);
     const totalPages = 6;
@@ -9,13 +13,12 @@ export default function Pagination() {
     }
 
     return (
-        <nav className="flex items-center justify-center my-7">
-            <ul className="flex items-center -space-x-px h-10 text-base">
+        <nav className="PaginacionBarra">
+            <ul className="PaginacionUl">
                 <li>
                     <button
                         disabled={currentPage === 1}
                         onClick={() => handlePageChange(currentPage - 1)}
-                        className="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700"
                     >
                         Anterior
                     </button>
@@ -25,9 +28,7 @@ export default function Pagination() {
                     <li key={pageNumber + 1}>
                         <button
                             onClick={() => handlePageChange(pageNumber + 1)}
-                            className={`${
-                                currentPage === pageNumber + 1 ? "text-white bg-gray-700" : "text-gray-500 bg-white hover:bg-gray-100"
-                            } flex items-center justify-center px-4 h-10 leading-tight border border-gray-300 rounded-lg`}
+                            className={`${currentPage === pageNumber + 1 ? "text-white bg-gray-700" : "text-gray-500 bg-white hover:bg-gray-100"}`}
                         >
                             {pageNumber + 1}
                         </button>
@@ -38,7 +39,6 @@ export default function Pagination() {
                     <button
                         disabled={currentPage === totalPages}
                         onClick={() => handlePageChange(currentPage + 1)}
-                        className="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700"
                     >
                         Siguiente
                     </button>

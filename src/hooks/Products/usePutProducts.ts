@@ -4,17 +4,9 @@ import { updateProduct } from "../../services/Products";
 import useGetProductById from "./useGetProductById";
 
 
-interface ProductFormData {
-  id: number;
-  nombre: string;
-  marca: string;
-  precio: number;
-  imagen: string;
-  descripcion: string;
-}
 
 export default function usePutProduct(productId: string) {
-  const { register, handleSubmit, setValue } = useForm<ProductFormData>();
+  const { register, handleSubmit, setValue } = useForm<Productos>();
   const { product } = useGetProductById(productId);
 
   useEffect(() => {
@@ -28,7 +20,7 @@ export default function usePutProduct(productId: string) {
     }
   }, [product, setValue]);
 
-  const onSubmit = handleSubmit(async (data: ProductFormData) => {
+  const onSubmit = handleSubmit(async (data: Productos) => {
     try {
       await updateProduct(productId, data);
     } catch (error) {
