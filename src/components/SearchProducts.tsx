@@ -1,19 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getAllProductsSearch } from '../services/Products';
+import { getAllProductsSearch, getAllProducts } from '../services/Products'; // Asumiendo que tienes una función para obtener todos los productos
+import SingleProduct from './SingleProducts';
 import '../App.css'
-
 
 const SearchProducts = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [allProducts, setAllProducts] = useState<Productos[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<Productos[]>([]);
+
+  useEffect(() => {
+    // Cargar todos los productos al iniciar la página
+    const fetchProducts = async () => {
+      try {
+        const products = await getAllProducts();
+        setAllProducts(products);
+        setFilteredProducts(products); // Mostrar todos los productos al cargar la página
+      } catch (error) {
+        console.error("Error al obtener productos", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   const handleSearchChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const term = event.target.value;
     setSearchTerm(term);
     try {
-      const products = await getAllProductsSearch(term);
-      setFilteredProducts(products);
+      if (term === '') {
+        setFilteredProducts(allProducts); // Mostrar todos los productos si el término está vacío
+      } else {
+        const products = await getAllProductsSearch(term);
+        setFilteredProducts(products);
+      }
     } catch (error) {
       console.error("Error al obtener productos", error);
     }
@@ -32,15 +52,12 @@ const SearchProducts = () => {
         value={searchTerm}
         onChange={handleSearchChange}
       />
-      <section className='ContenedorProducto'>
+      <section className='ContenedorProductos'>
         {filteredProducts?.map((productResult: Productos) => (
-          <div key={productResult.id} className="producto">
-            <h3>{productResult.nombre}</h3>
-            <p>Precio: {productResult.precio}</p>
-            {productResult.marca !== undefined && (
-              <p>Stock: {productResult.descripcion}</p>
-            )}
-          </div>
+          <SingleProduct
+            key={productResult.id}
+            product={productResult}
+          ></SingleProduct>
         ))}
       </section>
     </div>
