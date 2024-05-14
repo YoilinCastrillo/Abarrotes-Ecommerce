@@ -15,8 +15,10 @@ export default function useGetProductById (ProductId:string) {
               console.error("Error al obtener producto", error);
             }
           }
-      
           getProduct();
-    }, [])
+    }, [ProductId])
     return {product}
 }
+
+
+
