@@ -149,3 +149,36 @@ export async function getAllProducts() {
       throw error;
     }
   }
+
+
+
+export async function getAllProductsSearch(searchTerm: string) {
+    let response;
+    try {
+        const url = new URL(`https://${import.meta.env.VITE_API_URL}.mockapi.io/Abarrotes`);
+        url.searchParams.append('sortBy', 'title');
+        url.searchParams.append('order', 'desc');
+
+        response = await fetch(url, {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+        });
+        if (!response.ok) throw new Error('Error al obtener productos');
+    } catch (error) {
+        console.error('Error al hacer fetching: ', error);
+        throw error;
+    } finally {
+        console.log('Fetching de productos finalizado');
+    }
+
+    try {
+        const responseData: Productos[] = await response.json();
+        const filteredProducts = responseData.filter((product: Productos) =>
+            product.nombre.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        return filteredProducts;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+}
