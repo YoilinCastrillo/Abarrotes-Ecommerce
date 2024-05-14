@@ -1,6 +1,4 @@
 import { SetStateAction, useState } from "react";
-import ProductsContext from "../context/ProductsContext";
-import Home from "../pages/Home";
 import '../App.css'
 
 export default function Pagination() {

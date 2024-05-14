@@ -8,11 +8,16 @@ const Products = () => {
   
   return (
   <div className='ContenedorTodoProducto'> 
+  
     <div>
      <Link to="/new">
      <button className="btn-agregar">Agregar producto</button>
+    
      </Link>
     </div>
+
+
+
     <section className='ContenedorProducto' >{}
       {filteredProducts?.map((productResult: Productos) => (
         <SingleProduct

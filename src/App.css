@@ -2,11 +2,17 @@
   display: flex;
   flex-direction: column;
   max-width: 1280px;
-  margin: 0 auto;
+  margin-top: 5%;
   padding: 2rem;
   text-align: center;
+ 
 }
 
+body{
+  display: flex;
+  justify-content: center;
+
+}
 .ContenedorTodoProducto{
   margin-top: 5%;
 }
@@ -53,6 +59,7 @@
   display: flex;
   flex-direction: row ;
   flex-wrap: wrap;
+  justify-content: center;
 
 
 }
@@ -99,11 +106,11 @@
   justify-content: end;
   width: 300px;
   height: 450px;
-  background-color: hsl(210, 53%, 67%);
-  border: 2px solid rgb(255, 255, 255);
+  background-color: hsl(213, 100%, 98%);
   border-radius: 0.5rem;
   margin: 1rem;
-  color: rgb(0, 0, 0)
+  color: rgb(0, 0, 0);
+  box-shadow: 0 0 20px rgb(160, 160, 160);
 
 }
 
@@ -129,6 +136,7 @@
 
 .PaginacionBarra{
   display: flex;
+  justify-content: center;
 
 }
 

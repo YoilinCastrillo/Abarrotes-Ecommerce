@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getAllProductsSearch, getAllProducts } from '../services/Products'; // Asumiendo que tienes una función para obtener todos los productos
 import SingleProduct from './SingleProducts';
+<<<<<<< HEAD
+import Products from './Products';
+=======
 import '../App.css'
+>>>>>>> 2d9dbe5e291f06ad2756f78159138c4371b9de14
 
 const SearchProducts = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -42,10 +46,18 @@ const SearchProducts = () => {
   return (
     <div>
       <div>
+<<<<<<< HEAD
+     <Link to="/new">
+     <button className="btn-agregar">Agregar producto</button>
+    
+     </Link>
+    </div>
+=======
         <Link to="/new">
           <button>Agregar producto</button>
         </Link>
       </div>
+>>>>>>> 2d9dbe5e291f06ad2756f78159138c4371b9de14
       <input
         type="text"
         placeholder="Buscar productos..."
@@ -54,6 +66,9 @@ const SearchProducts = () => {
       />
       <section className='ContenedorProductos'>
         {filteredProducts?.map((productResult: Productos) => (
+          
+         
+
           <SingleProduct
             key={productResult.id}
             product={productResult}
