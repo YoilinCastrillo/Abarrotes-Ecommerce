@@ -1,7 +1,4 @@
 import { SetStateAction, useState } from "react";
-import ProductsContext from "../context/ProductsContext";
-import Home from "../pages/Home";
-
 export default function Pagination() {
     const [currentPage, setCurrentPage] = useState(1);
     const totalPages = 6;

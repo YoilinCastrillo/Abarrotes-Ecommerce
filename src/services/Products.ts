@@ -3,9 +3,7 @@ export async function getAllProducts() {
     let response;
     try {
       response = await fetch(
-        `https://${
-          import.meta.env.VITE_API_URL
-        }.mockapi.io/Abarrotes`,
+        `https://${import.meta.env.VITE_API_URL}.mockapi.io/Abarrotes`,
         {
           method: "GET",
           headers: { "Content-Type": "application/json" },
@@ -35,9 +33,7 @@ export async function getAllProducts() {
     let response;
     try {
       response = await fetch(
-        `https://${
-          import.meta.env.VITE_API_URL
-        }.mockapi.io/Abarrotes`,
+        `https://${import.meta.env.VITE_API_URL}.mockapi.io/Abarrotes`,
         {
           method: "POST",
           headers: { "content-type": "application/json" },
@@ -65,15 +61,13 @@ export async function getAllProducts() {
     let response;
     try {
       response = await fetch(
-        `https://${
-          import.meta.env.VITE_API_URL
-        }.mockapi.io/Abarrotes/${productId}`,
+        `https://${import.meta.env.VITE_API_URL}.mockapi.io/Abarrotes/${productId}`,
         {
           method: "GET",
           headers: { "Content-Type": "application/json" },
         }
       );
-      if (!response.ok) throw new Error("Error al obtener productosz");
+      if (!response.ok) throw new Error("Error al obtener productos");
     } catch (error) {
       console.error("Error al hacer fetching: ", error);
       throw error;
@@ -93,9 +87,7 @@ export async function getAllProducts() {
     let response;
     try {
       response = await fetch(
-        `https://${
-          import.meta.env.VITE_API_URL
-        }.mockapi.io/Abarrotes${productId}`,
+        `https://${import.meta.env.VITE_API_URL}.mockapi.io/Abarrotes${productId}`,
         {
           method: "DELETE",
           headers: { "Content-Type": "application/json" },
@@ -125,9 +117,7 @@ export async function getAllProducts() {
     let response;
     try {
       response = await fetch(
-        `https://${
-          import.meta.env.VITE_API_URL
-        }..mockapi.io/Abarrotes/${productId}`,
+        `https://${import.meta.env.VITE_API_URL}..mockapi.io/Abarrotes/${productId}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },

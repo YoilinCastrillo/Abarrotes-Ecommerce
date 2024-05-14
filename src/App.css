@@ -6,6 +6,38 @@
   text-align: center;
 }
 
+.ContenedorTodoProducto{
+  margin-top: 5%;
+}
+
+.btn-agregar {
+  background-color: #4CAF50; /* Color de fondo */
+  color: white; /* Color del texto */
+  padding: 10px 20px; /* Espaciado interno */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cursor al pasar por encima */
+}
+
+.btn-agregar:hover {
+  background-color: #45a049; /* Cambio de color al pasar el mouse */
+}
+/* Estilo para el botón */
+.btn-primary {
+  background-color: #007bff; /* Color de fondo del botón */
+  color: #fff; /* Color del texto */
+  border: none; /* Sin borde */
+  padding: 0.5rem 1rem; /* Espaciado interno */
+  cursor: pointer; /* Cambiar cursor al pasar sobre el botón */
+  border-radius: 0.25rem; /* Borde redondeado */
+  transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+}
+
+/* Estilo para el botón al pasar el cursor sobre él */
+.btn-primary:hover {
+  background-color: #0056b3; /* Cambiar color de fondo al pasar el cursor */
+}
+
 
 .card {
   padding: 2em;
@@ -24,17 +56,53 @@
 
 }
 
+.TopBar {
+  position: fixed; /* Cambiar a 'absolute' si prefieres que sea relativo al contenedor padre */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #343434;
+  color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1%;
+}
+
+.TopBar-brand {
+  font-size: 1.5rem;
+}
+
+.TopBar-logo {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.TopBar-links {
+  display: flex;
+}
+
+.TopBar-link {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  padding: 0.5rem;
+}
+
+.TopBar-link:hover {
+  background-color: #e6e6e6;
+}
+
 .TProducto{
   display: flex;
   flex-direction: column;
   justify-content: end;
   width: 300px;
   height: 450px;
-  background-color: rgb(70, 138, 180);
-  border: 2px solid black;
+  background-color: hsl(210, 53%, 67%);
+  border: 2px solid rgb(255, 255, 255);
   border-radius: 0.5rem;
   margin: 1rem;
-  color: black
+  color: rgb(0, 0, 0)
 
 }
 
