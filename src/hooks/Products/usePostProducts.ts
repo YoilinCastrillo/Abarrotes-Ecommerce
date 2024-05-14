@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { createProduct, getAllProducts } from '../../services/Products'
 
+//POST DE PRODUCTOS
+
 export default function usePostProducts() {
     const { register, handleSubmit, setValue } = useForm()
     const [nextProductId, setNextProductId] = useState(0)
