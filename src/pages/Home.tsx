@@ -1,18 +1,19 @@
 import Pagination from "../components/Pagination"
-import Products from "../components/Products"
 import SearchProducts from "../components/SearchProducts"
 import TopBar from "../components/TopBar"
+import '../App.css'
 
 
 
 const Home = () => {
   return (
     <>
-     <SearchProducts/>
- 
-    <Pagination />
-    <TopBar />
-    
+
+      <TopBar />
+      <SearchProducts/>
+      <Pagination />
+
+
     </>
   )
 }

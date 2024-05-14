@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useGetAllProductsSearch from '../hooks/Products/useGetAllProductsSearch';
 import SingleProduct from './SingleProducts';
+import Products from './Products';
 
 const SearchProducts = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -14,10 +15,11 @@ const SearchProducts = () => {
   return (
     <div>
       <div>
-        <Link to="/new">
-      
-        </Link>
-      </div>
+     <Link to="/new">
+     <button className="btn-agregar">Agregar producto</button>
+    
+     </Link>
+    </div>
       <input
         type="text"
         placeholder="Buscar productos..."
@@ -26,6 +28,9 @@ const SearchProducts = () => {
       />
       <section className='ContenedorProducto'>
         {filteredProducts?.map((productResult: Productos) => (
+          
+         
+
           <SingleProduct
             key={productResult.id}
             product={productResult}

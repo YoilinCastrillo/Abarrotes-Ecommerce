@@ -141,8 +141,6 @@ export async function getAllProducts() {
     }
   }
 
-
-
 export async function getAllProductsSearch(searchTerm: string) {
     let response;
     try {

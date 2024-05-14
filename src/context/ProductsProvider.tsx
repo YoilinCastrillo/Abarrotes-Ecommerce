@@ -4,6 +4,7 @@ import ProductsContext from "./ProductsContext";
 const ProductsProvider = ({ children }: { children: ReactNode }) => {
   const [ProductId, setProductId] = useState("");
   const [page, setPage] = useState(1)
+ // const [descripcion, setdescripcion] = useState("") //////
 
   return (
     <ProductsContext.Provider
@@ -12,6 +13,7 @@ const ProductsProvider = ({ children }: { children: ReactNode }) => {
         setProductId,
         page,
         setPage,
+        //setdescripcion, /////
       }}
     >
       {children}

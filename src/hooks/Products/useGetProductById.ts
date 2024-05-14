@@ -17,6 +17,6 @@ export default function useGetProductById (ProductId:string) {
           }
       
           getProduct();
-    }, [])
+    }, [ProductId])
     return {product}
 }
