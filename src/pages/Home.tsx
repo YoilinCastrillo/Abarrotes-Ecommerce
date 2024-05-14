@@ -8,11 +8,11 @@ import TopBar from "../components/TopBar"
 const Home = () => {
   return (
     <>
-     <SearchProducts/>
- 
-    <Pagination />
-    <TopBar />
-    
+      <SearchProducts />
+     
+      <Pagination />
+      <TopBar />
+
     </>
   )
 }
