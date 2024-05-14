@@ -55,7 +55,7 @@ body{
 }
 
 
-.ContenedorProducto{
+.ContenedorProductos{
   display: flex;
   flex-direction: row ;
   flex-wrap: wrap;
@@ -72,7 +72,7 @@ body{
   background-color: #343434;
   color: rgb(255, 255, 255);
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 1%;
 }
@@ -145,4 +145,49 @@ body{
   flex-direction: row;
   text-decoration: none;
   list-style-type: none;
+}
+
+.Detalles2{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+
+  
+}
+
+.Detalles{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #ffffff;
+  box-shadow: 0 0 20px rgb(160, 160, 160);
+  width: 80vw;
+  border-radius: 10px;
+  padding: 4%;
+  box-sizing: border-box;
+}
+
+.Detalles p{
+  font-size: 1rem;
+  margin: 0;
+}
+
+.eliminar{
+  background-color: rgb(165, 0, 0);
+  color: white;
+  margin: 20px 10px;
+  border-style: none;
+  box-shadow: 0 0 10px rgb(101, 101, 101);
+}
+
+.eliminar:hover{
+  background-color: rgb(221, 0, 0);
+  
+}
+
+.Detalles img{
+  background-color: #9e9e9e;
+  width: 50%;
+  height: 380px;
+
 }

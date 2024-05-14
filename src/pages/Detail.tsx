@@ -1,12 +1,13 @@
 import DetailProduct from "../components/DetailProduct"
+import TopBar from '../components/TopBar';
 
 
 const Detail = () => {
   return (
     
     <div>
-      
-       <DetailProduct></DetailProduct>
+       <TopBar/>
+       <DetailProduct/>
     </div>
 
   )

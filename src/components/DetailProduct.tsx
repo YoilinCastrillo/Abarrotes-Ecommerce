@@ -15,13 +15,20 @@ const DetailProduct = () => {
   const { product } = useGetProductById(productId)
 
   return (
-    <div>
-      <h1>Id: {product?.id}</h1>
-      <h1>Nombre: {product?.nombre}</h1>
-      <h1>Marca: {product?.marca}</h1>
-      <h1>Precio: {product?.precio}</h1>
-      <h1>Imagen: {product?.imagen}</h1>
-      <h1>Descripcion: {product?.descripcion}</h1>
+    <div className="Detalles">
+     
+      <div className="Detalles2"> 
+        <h2>Detalles</h2>
+        <p>Id: {product?.id}</p>
+        <p>Nombre: {product?.nombre}</p>
+        <p>Marca: {product?.marca}</p>
+        <p>Precio: {product?.precio}</p>
+        <p>Descripcion: {product?.descripcion}</p>
+        <button className="eliminar" type="button">Eliminar</button>
+      </div>
+      <img src="{product?.imagen}" alt="" />
+     
+
     </div>
   );
 };

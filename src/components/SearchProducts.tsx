@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { getAllProductsSearch, getAllProducts } from '../services/Products'; // Asumiendo que tienes una función para obtener todos los productos
 import SingleProduct from './SingleProducts';
 import Products from './Products';
+import '../App.css'
 
 const SearchProducts = () => {
   const [searchTerm, setSearchTerm] = useState('');

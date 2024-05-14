@@ -4,5 +4,5 @@ type Productos = {
     marca: string,
     precio: number,
     imagen: string,
-    descripcion: string;
+    descripcion: string [];
 }
