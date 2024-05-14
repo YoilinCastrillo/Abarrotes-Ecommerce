@@ -16,8 +16,6 @@ const Products = () => {
      </Link>
     </div>
 
-
-
     <section className='ContenedorProducto' >{}
       {filteredProducts?.map((productResult: Productos) => (
         <SingleProduct

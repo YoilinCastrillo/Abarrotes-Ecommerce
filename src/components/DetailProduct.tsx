@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
 import useGetProductById from "../hooks/Products/useGetProductById";
-
+import { Link } from 'react-router-dom';
 
 
 const DetailProduct = () => {
@@ -25,6 +25,9 @@ const DetailProduct = () => {
         <p>Precio: {product?.precio}</p>
         <p>Descripcion: {product?.descripcion}</p>
         <button className="eliminar" type="button">Eliminar</button>
+        <Link to={`/edit/${productId}`}>
+          <button className="editar" type="button">Editar</button>
+        </Link>
       </div>
       <img src="{product?.imagen}" alt="" />
      
