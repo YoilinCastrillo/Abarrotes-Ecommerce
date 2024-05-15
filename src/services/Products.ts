@@ -117,7 +117,7 @@ export async function getAllProducts() {
     let response;
     try {
       response = await fetch(
-        `https://${import.meta.env.VITE_API_URL}..mockapi.io/Abarrotes/${productId}`,
+        `https://${import.meta.env.VITE_API_URL}.mockapi.io/Abarrotes/${productId}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },

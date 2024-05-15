@@ -5,7 +5,7 @@ import './index.css'
 import Home from './pages/Home';
 import NewPage from './pages/NewPage';
 import Detail from './pages/Detail';
-
+import Update from './pages/Update';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/productos/:productId",
     element: <Detail></Detail>
+  },
+  {
+    path: "/update/:productId",
+    element: <Update></Update>
   }
 ]);
 

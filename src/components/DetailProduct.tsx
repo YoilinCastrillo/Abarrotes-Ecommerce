@@ -25,7 +25,7 @@ const DetailProduct = () => {
         <p>Precio: {product?.precio}</p>
         <p>Descripcion: {product?.descripcion}</p>
         <button className="eliminar" type="button">Eliminar</button>
-        <Link to={`/edit/${productId}`}>
+        <Link to={`/update/${product?.id}`}>
           <button className="editar" type="button">Editar</button>
         </Link>
       </div>

@@ -25,7 +25,7 @@ export default function usePutProduct(productId: string) {
   const onSubmit = handleSubmit(async (data: Productos) => {
     try {
       await updateProduct(productId, data);
-      navigate('/product')
+      navigate('/')
     } catch (error) {
       console.error("Error al actualizar:", error);
     }

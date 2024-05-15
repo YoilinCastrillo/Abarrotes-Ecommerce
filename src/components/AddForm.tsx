@@ -21,7 +21,7 @@ const AddForm = () => {
 
 
   return (
-    <form onSubmit={OnSubmit}>  
+    <form onSubmit={OnSubmit} className="custom-form"> 
     <div>
       <label htmlFor="idInput" className="form-label">Id</label>
       <input

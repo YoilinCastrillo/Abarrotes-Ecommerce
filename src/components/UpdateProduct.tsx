@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import usePutProducts from "../hooks/Products/usePutProducts";
-import { updateProduct } from "../../services/Products";
-import useGetProductById from "../hooks/Products/useGetProductById";
-import "./UpdateProductForm.css"; // Importa tu archivo CSS aquí si aún no lo has hecho
+//import { updateProduct } from "../../services/Products";
+//import useGetProductById from "../hooks/Products/useGetProductById";
+//import "./UpdateProductForm.css"; // Importa tu archivo CSS aquí si aún no lo has hecho
 
 export default function UpdateProductForm() {
   const { productId } = useParams<{ productId: string }>();
