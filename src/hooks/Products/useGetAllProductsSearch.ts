@@ -16,7 +16,7 @@ export default function useGetAllProductsSearch(searchTerm: string) {
     useEffect(() => {
         async function fetchFilteredProducts() {
             try {
-                const products = await getFilteredProducts(searchTerm); // Obtener productos filtrados
+                const products = await getFilteredProducts(searchTerm); 
                 setFilteredProducts(products);
             } catch (error) {
                 console.error("Error al obtener productos", error);

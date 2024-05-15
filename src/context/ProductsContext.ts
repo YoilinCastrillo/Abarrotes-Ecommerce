@@ -5,19 +5,17 @@ type ProductsContextType = {
     setProductId: (text: string) => void;
     page: number;
     setPage: (newPage: number) => void;
-   // descripcion: string; //////
-   // setdescripcion: (text: string) => void; //////
+   
 
 };
-//COMPLETAR EL CONTEXT CON LO QUE NECESITE
+
 const ProductsContext = React.createContext<ProductsContextType>({
 
   ProductId: "",
   setProductId: () => {},
   page: 1,
   setPage: () => {},
- // descripcion: "", //////
-  //setdescripcion: () => {}, /////
+
 
 });
 

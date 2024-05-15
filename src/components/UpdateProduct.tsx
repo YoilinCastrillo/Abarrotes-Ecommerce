@@ -1,8 +1,6 @@
 import { useParams } from "react-router-dom";
 import usePutProducts from "../hooks/Products/usePutProducts";
-//import { updateProduct } from "../../services/Products";
-//import useGetProductById from "../hooks/Products/useGetProductById";
-//import "./UpdateProductForm.css"; // Importa tu archivo CSS aquí si aún no lo has hecho
+import { Link } from 'react-router-dom';
 
 export default function UpdateProductForm() {
   const { productId } = useParams<{ productId: string }>();
@@ -78,9 +76,11 @@ export default function UpdateProductForm() {
           <button type="submit" className="custom-button">
             Guardar
           </button>
+          <Link to={`/`}>
           <button type="button" className="custom-button">
             Cancelar
           </button>
+          </Link>
         </section>
       </form>
     </div>

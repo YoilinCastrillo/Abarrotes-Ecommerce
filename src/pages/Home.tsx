@@ -11,7 +11,6 @@ const Home = () => {
 
       <TopBar />
       <SearchProducts/>
-      <Pagination />
 
     </>
   )

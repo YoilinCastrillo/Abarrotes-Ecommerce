@@ -1,47 +1,66 @@
-import { SetStateAction, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import ProductsContext from "../context/ProductsContext";
 import '../App.css'
 
+
 export default function Pagination() {
-    const [currentPage, setCurrentPage] = useState(1);
-    const totalPages = 6;
+  const { page, setPage } = useContext(ProductsContext);
+  const [currentPage, setCurrentPage] = useState(1);
 
-    function handlePageChange(pageNumber: SetStateAction<number>) {
-        setCurrentPage(pageNumber);
-        // Aquí podrías hacer una llamada a una API o actualizar los datos de acuerdo a la página seleccionada
-    }
+  function incrementPage() {
+    console.log("Se hizo clic en incrementPage");
+    setPage(page + 1);
+  }
+  function decrementPage() {
+    console.log("Se hizo clic en decrementPage");
+    setPage(page - 1);
+  }
 
-    return (
-        <nav className="PaginacionBarra">
-            <ul className="PaginacionUl">
-                <li>
-                    <button
-                        disabled={currentPage === 1}
-                        onClick={() => handlePageChange(currentPage - 1)}
-                    >
-                        Anterior
-                    </button>
-                </li>
+  function setPageNumber(pageNumber: number) {
+    setPage(pageNumber);
+  }
+  useEffect(() => {
+    setCurrentPage(page);
+  }, [page]);
+  return (
+    <nav className="pagination">
+      <ul className="pagination__list">
+        <li>
+          <a
+            onClick={decrementPage}
+            href="#"
+            className="pagination__link"
+          >
+            Previous
+          </a>
+        </li>
 
-                {[...Array(totalPages).keys()].map((pageNumber) => (
-                    <li key={pageNumber + 1}>
-                        <button
-                            onClick={() => handlePageChange(pageNumber + 1)}
-                            className={`${currentPage === pageNumber + 1 ? "text-white bg-gray-700" : "text-gray-500 bg-white hover:bg-gray-100"}`}
-                        >
-                            {pageNumber + 1}
-                        </button>
-                    </li>
-                ))}
+        {Array.from({ length: 5 }, (_, index) => index + 1).map(
+          (pageNumber) => (
+            <li key={pageNumber}>
+              <a
+                onClick={() => setPageNumber(pageNumber)}
+                href="#"
+                className={`pagination__link ${
+                  currentPage === pageNumber ? "pagination__link--active" : ""
+                }`}
+              >
+                {pageNumber}
+              </a>
+            </li>
+          )
+        )}
 
-                <li>
-                    <button
-                        disabled={currentPage === totalPages}
-                        onClick={() => handlePageChange(currentPage + 1)}
-                    >
-                        Siguiente
-                    </button>
-                </li>
-            </ul>
-        </nav>
-    );
+        <li>
+          <a
+            onClick={incrementPage}
+            href="#"
+            className="pagination__link"
+          >
+            Next
+          </a>
+        </li>
+      </ul>
+    </nav>
+  );
 }

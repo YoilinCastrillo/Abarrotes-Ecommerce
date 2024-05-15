@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 function TopBar() {
 
-    //const {Products} = useGetProduts();
 
   return (
     <nav className="TopBar">
@@ -12,8 +11,6 @@ function TopBar() {
       </div>
       <div className="TopBar-links">
       <Link to="/" className="TopBar-link">Home</Link>
-        <a href="#" className="TopBar-link">Products</a>
-        <a href="#" className="TopBar-link">About</a>
       </div>
     </nav>
   );
