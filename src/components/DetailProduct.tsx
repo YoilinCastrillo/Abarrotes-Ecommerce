@@ -29,7 +29,7 @@ const DetailProduct = () => {
           <button className="editar" type="button">Editar</button>
         </Link>
       </div>
-      <img src="{product?.imagen}" alt="" />
+      <img className="ImageDetails" src={product?.imagen}/>
      
 
     </div>

@@ -42,22 +42,23 @@ const SearchProducts = () => {
 
   return (
     <div>
-      <div>
-     <Link to="/new">
-     <button className="btn-agregar">Agregar producto</button>
-    
-     </Link>
-    </div>
       <input
         type="text"
         placeholder="Buscar productos..."
         value={searchTerm}
         onChange={handleSearchChange}
+        className="inputsearch"
       />
+       <div>
+        <Link to="/new">
+          <button className="btn-agregar">Agregar producto</button>
+
+        </Link>
+      </div>
       <section className='ContenedorProductos'>
         {filteredProducts?.map((productResult: Productos) => (
-          
-         
+
+
 
           <SingleProduct
             key={productResult.id}

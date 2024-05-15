@@ -13,7 +13,6 @@ const Home = () => {
       <SearchProducts/>
       <Pagination />
 
-
     </>
   )
 }
